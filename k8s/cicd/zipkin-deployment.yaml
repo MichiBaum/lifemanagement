@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zipkin-deployment
+  namespace: microservices
+  labels:
+    app: zipkin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zipkin
+  template:
+    metadata:
+      annotations:
+        meta.helm.sh/release-name: microservices-k8s
+        meta.helm.sh/release-namespace: microservices
+      labels:
+        app.kubernetes.io/managed-by: Helm
+        app: zipkin
+    spec:
+      containers:
+      - name: zipkin
+        image: openzipkin/zipkin:2.23.2
+        imagePullPolicy: Always
+        ports:
+          - name: zipkin-port
+            containerPort: 9411

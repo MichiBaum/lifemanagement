@@ -22,6 +22,11 @@ spring:
         default-retries: 3
   application:
     name: admin
+  zipkin:
+    base-url: http://zipkin/
+  sleuth:
+    sampler:
+      probability: 100
 
 management:
   cloudfoundry:

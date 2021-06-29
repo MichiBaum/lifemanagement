@@ -15,6 +15,11 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
+  zipkin:
+    base-url: http://zipkin/
+  sleuth:
+    sampler:
+      probability: 100
 
 management:
   cloudfoundry:

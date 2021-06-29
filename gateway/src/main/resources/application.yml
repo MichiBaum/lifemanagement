@@ -16,8 +16,10 @@ spring:
           enabled: true
           lower-case-service-id: true
   zipkin:
+    enabled: true
     base-url: http://zipkin/
   sleuth:
+    enabled: true
     sampler:
       probability: 100
 
